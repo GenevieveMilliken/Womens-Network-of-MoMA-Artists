@@ -1,5 +1,5 @@
 #bring data into R as an object. File path is relative to your computer and file location.
-data <- read.csv("/Users/genevievemilliken/Desktop/MoMA_Female_Artist_Collocated.csv")
+data <- read.csv("YOURCSV.csv")
 
 #head function allows you to view the first few rows of data 
 head(data)    
@@ -10,7 +10,9 @@ data <- data.frame(data)
 #transpose data into one vector so it can be co-related
 tdata <- t(data)
 
-#check the first few rows of the transposed data to see if it looks okayhead(tdata)
+#check the first few rows of the transposed data to see if it looks okay 
+
+head(tdata)
 
 #Create a list to hold value of pairs
 edges <- list()
@@ -40,5 +42,5 @@ head(edgelist)
 weighted <- aggregate(edgelist$Count, by=list(source=edgelist$Var1, target=edgelist$Var2), FUN = sum)
 
 #write out weighted edgelist as a CSV. Make sure to use a unique file name so you do not overwrite your original file!
-write.csv(weighted,"/Users/genevievemilliken/Desktop/MoMA_Female_Artist_Network.csv")
+write.csv(weighted,"YOURCSV_NETWORK.csv")
 
